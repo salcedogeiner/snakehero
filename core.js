@@ -13,6 +13,7 @@ function initGame() {
 
     let userDirection = 'right';
     let nodesDirection = ['right', 'right', 'right', 'right', 'right']
+    let userKeyAction = false;
 
     // Función para establecer el color de fondo negro
     function clearCanvas() {
@@ -156,21 +157,24 @@ function initGame() {
 
 
     document.addEventListener("keydown", function (event) {
-        switch (event.key) {
-            case "ArrowUp":
-                userDirection = userDirection != "down" ? "up" : userDirection; // Mueve el cuadro hacia arriba
-                break;
-            case "ArrowDown":
-                userDirection = userDirection != "up" ? "down" : userDirection; // Mueve el cuadro hacia abajo
-                break;
-            case "ArrowLeft":
-                userDirection = userDirection != "right" ? "left" : userDirection; // Mueve el cuadro hacia la izquierda
-                break;
-            case "ArrowRight":
-                userDirection = userDirection != "left" ? "right" : userDirection; // Mueve el cuadro hacia la derecha
-                break;
+        if (!userKeyAction) {
+            userKeyAction = true;            
+            switch (event.key) {
+                case "ArrowUp":
+                    userDirection = userDirection != "down" ? "up" : userDirection; // Mueve el cuadro hacia arriba
+                    break;
+                case "ArrowDown":
+                    userDirection = userDirection != "up" ? "down" : userDirection; // Mueve el cuadro hacia abajo
+                    break;
+                case "ArrowLeft":
+                    userDirection = userDirection != "right" ? "left" : userDirection; // Mueve el cuadro hacia la izquierda
+                    break;
+                case "ArrowRight":
+                    userDirection = userDirection != "left" ? "right" : userDirection; // Mueve el cuadro hacia la derecha
+                    break;
+            }  
         }
-
+        
     });
 
 
@@ -184,6 +188,7 @@ function initGame() {
             el.paint()
         })
         seed.paint();
+        userKeyAction = false;
         
     }, 100);
 
