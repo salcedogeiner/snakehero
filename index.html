@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Juego</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #canvasContainer {
+            width: 90vw;
+            height: 70vh;
+            max-width: 300;
+            max-height: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        #lost {
+            position: absolute;
+            top: 30vh;
+            left: 0;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            display: none;
+        }
+        .container {
+            border: solid 1px white;
+            width: 350px;
+            text-align: center;
+            background-color: black;
+        }
+        button {
+            color: white;
+            padding: 5px;
+            font-size: 16px;
+            background-color: black;
+            border: solid 1px white;
+            margin: 10px;
+        }
+    </style>
+    <div><h1>SnakeHero</h1></div>
+    <div id="canvasContainer">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div>
+        <h2>Score: <span id="score">0</span></h2>
+    </div>    
+    <div id="lost">
+        <div class="container">
+            <h1>You Lost!</h1>
+            <h2>Score: <span id="total">0</span></h2>
+            <button onClick="window.location.reload(true)">Restart</button>
+        </div>        
+    </div>
+    <script src="core.js"></script>
+</body>
+</html>
